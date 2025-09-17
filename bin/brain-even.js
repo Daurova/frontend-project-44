@@ -17,12 +17,12 @@ const checkAnswer = () => {
   let counter = 0
   while (counter < 3) {
     let [num, answer] = askQuestion()
-    if (num % 2 === 0 && answer === 'yes') {
+    if (num % 2 === 0 && answer.toLowerCase() === 'yes') {
     // eslint-disable-next-line no-undef
       console.log ('Correct')
       counter = counter + 1
     }
-    if (num % 2 === 1 && answer === 'no') {
+    if (num % 2 === 1 && answer.toLowerCase() === 'no') {
     // eslint-disable-next-line no-undef
       console.log ('Correct')
 
@@ -33,13 +33,14 @@ const checkAnswer = () => {
       console.log ('Not correct')
     }
   }
-  // eslint-disable-next-line no-undef
-  console.log('Congratulations')
 }
 
 const playGame = () => {
+  const user = greetUser()
+  explainRules()
   checkAnswer()
+  // eslint-disable-next-line no-undef
+  console.log(`Congratulations, ${user}!`)
 }
-greetUser()
-explainRules()
+
 playGame()

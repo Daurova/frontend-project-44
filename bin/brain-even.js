@@ -28,7 +28,7 @@ const checkAnswer = () => {
 
       counter = counter + 1
     }
-    else {
+    else if (answer.toLowerCase() !== 'yes' && answer.toLowerCase() !== 'yes') {
     // eslint-disable-next-line no-undef
       console.log ('Not correct')
     }

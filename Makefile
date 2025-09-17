@@ -10,4 +10,9 @@ brain-games:
 publish:
 	npm publish --dry-run
 
-.PHONY: install brain-games publish
+#Run Eslint
+lint: 
+	npx eslint
+
+.PHONY: install brain-games publish lint
+

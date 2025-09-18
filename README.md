@@ -8,3 +8,5 @@
 
 ### Game demonstration
 [![ASCIIcast](    https://asciinema.org/connect/4dc73499-dfc7-4125-b4c5-804380d7e375)](    https://asciinema.org/connect/4dc73499-dfc7-4125-b4c5-804380d7e375)
+
+https://asciinema.org/connect/527132a3-b3a3-402a-a88b-f4550da26169

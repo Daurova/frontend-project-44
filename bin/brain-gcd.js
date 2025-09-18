@@ -26,6 +26,8 @@ const askQuestion = () => {
 }
 
 const checkAnswer = () => {
+  const user = greetUser()
+  explainRules()
   let counter = 0
   while (counter < 3) {
     let [res, answer] = askQuestion()
@@ -36,17 +38,15 @@ const checkAnswer = () => {
     }
     else if (res.toString() !== answer.toString()) {
     // eslint-disable-next-line no-undef
-      console.log ('Not correct')
+      console.log (`${answer} is wrong answer ;(. Correct answer was ${res}.\nLet's try again, ${user}!`)
     }
   }
+  // eslint-disable-next-line no-undef
+  console.log(`Congratulations, ${user}!`)
 }
 
 const playGame = () => {
-  const user = greetUser()
-  explainRules()
   checkAnswer()
-  // eslint-disable-next-line no-undef
-  console.log(`Congratulations, ${user}!`)
 }
 
 playGame()

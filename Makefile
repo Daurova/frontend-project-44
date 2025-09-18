@@ -15,7 +15,7 @@ brain-calc:
 	node bin/brain-calc.js
 
 #Run brain-gcd
-brain-calc:
+brain-gcd:
 	node bin/brain-gcd.js
 
 #Publish brain-games

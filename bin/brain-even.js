@@ -31,7 +31,7 @@ const checkAnswer = () => {
     }
     else if (answer.toLowerCase() !== 'yes' && answer.toLowerCase() !== 'yes') {
       // eslint-disable-next-line no-undef
-      console.log (`Let's try again, ${user}`)
+      console.log (`Let's try again, ${user}!`)
       return
     }
   }

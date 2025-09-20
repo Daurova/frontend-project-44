@@ -18,6 +18,14 @@ brain-calc:
 brain-gcd:
 	node bin/brain-gcd.js
 
+#Run brain-progression
+brain-progression:
+	node bin/brain-progression.js
+
+#Run brain-prime
+brain-prime:
+	node bin/brain-prime.js
+
 #Publish brain-games
 publish:
 	npm publish --dry-run

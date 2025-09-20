@@ -30,8 +30,10 @@ const checkAnswer = () => {
       counter = counter + 1
     }
     else if (answer.toLowerCase() !== 'yes' && answer.toLowerCase() !== 'yes') {
-      // console.log ('Not correct!')
-      return
+      // eslint-disable-next-line no-undef
+      console.log (`Let's try again, ${user}!`)
+      counter = 0
+      continue
     }
   }
   if (counter === 3) {

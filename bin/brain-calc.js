@@ -12,7 +12,7 @@ const askQuestion = () => {
   let num2 = Math.round(Math.random() * 100)
   const operators = ['+', '-', '*']
   let operator = operators[Math.floor(Math.random() * 3)]
-  const answer = readlineSync.question(`Question ${num1} ${operator} ${num2}\nYour answer: `)
+  const answer = readlineSync.question(`Question: ${num1} ${operator} ${num2}\nYour answer: `)
   let res
   switch (operator) {
     case ('+'):

@@ -20,7 +20,7 @@ const askQuestion = () => {
   let num1 = Math.round(Math.random() * 100) + 1
   let num2 = Math.round(Math.random() * 100) + 1
 
-  const answer = readlineSync.question(`Question ${num1} ${num2}\n Your answer: `)
+  const answer = readlineSync.question(`Question: ${num1} ${num2}\n Your answer: `)
   const res = findGcd(num1, num2)
   return [res, answer]
 }

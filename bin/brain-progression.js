@@ -30,7 +30,7 @@ const askQuestion = () => {
   const modifiedProgression = progression.replace(progression.split(' ')[index], '..')
   const replacedNum = progression.split(' ')[index]
 
-  const answer = readlineSync.question(`Question ${modifiedProgression}\n Your answer: `)
+  const answer = readlineSync.question(`Question: ${modifiedProgression}\n Your answer: `)
   return [replacedNum, answer]
 }
 

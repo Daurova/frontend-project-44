@@ -20,7 +20,7 @@ const isPrime = (number) => {
 }
 
 const askQuestion = () => {
-  const num = Math.round(Math.random()*99)+1
+  const num = Math.round(Math.random() * 99) + 1
   const answer = readlineSync.question(`Question ${num}\n Your answer: `)
   const res = isPrime(num)
   return [res, answer]

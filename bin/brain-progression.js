@@ -48,6 +48,7 @@ const checkAnswer = () => {
     else if (res.toString() !== answer.toString()) {
     // eslint-disable-next-line no-undef
       console.log (`${answer} is wrong answer ;(. Correct answer was ${res}.\nLet's try again, ${user}!`)
+      return
     }
   }
   // eslint-disable-next-line no-undef

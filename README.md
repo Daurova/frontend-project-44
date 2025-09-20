@@ -6,15 +6,17 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Daurova_frontend-project-44&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Daurova_frontend-project-44)
 
-### Game demonstration
-[![ASCIIcast](    https://asciinema.org/connect/4dc73499-dfc7-4125-b4c5-804380d7e375)](    https://asciinema.org/connect/4dc73499-dfc7-4125-b4c5-804380d7e375)
+### Game demonstration brain-even
+https://asciinema.org/a/1UZOkDFBgLxiX07fIWz1pRWMc
 
-### brain-calc
-https://asciinema.org/connect/527132a3-b3a3-402a-a88b-f4550da26169
+### Game demonstration brain-calc
+https://asciinema.org/a/PVfLBJc3QGTQpRgtyCTwYYwAw
 
-### brain GCD
-https://asciinema.org/connect/75ed4db8-2949-4974-8116-ef2a9479cec5
+### Game demonstration brain GCD
+https://asciinema.org/a/fuCk7vcUprNi2efIcWw909zeC
 
-### brain progression
+### Game demonstration brain progression
+https://asciinema.org/a/mIlB8ohyAAxeoh4AUsYG1E4e6
 
-###brain-prime
+### Game demonstration brain-prime
+https://asciinema.org/a/RkN1XLgzxvTC502eRHKUgr9vo

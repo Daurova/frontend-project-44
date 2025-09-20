@@ -14,6 +14,7 @@ const askQuestion = () => {
 }
 
 const checkAnswer = () => {
+  const user = greetUser()
   let counter = 0
   while (counter < 3) {
     let [num, answer] = askQuestion()
@@ -29,18 +30,19 @@ const checkAnswer = () => {
       counter = counter + 1
     }
     else if (answer.toLowerCase() !== 'yes' && answer.toLowerCase() !== 'yes') {
-    // eslint-disable-next-line no-undef
-      console.log ('Not correct!')
+      // console.log ('Not correct!')
+      return
     }
+  }
+  if (counter === 3) {
+    // eslint-disable-next-line no-undef
+    console.log(`Congratulations, ${user}!`)
   }
 }
 
 const playGame = () => {
-  const user = greetUser()
   explainRules()
   checkAnswer()
-  // eslint-disable-next-line no-undef
-  console.log(`Congratulations, ${user}!`)
 }
 
 playGame()

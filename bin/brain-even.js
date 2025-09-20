@@ -9,7 +9,7 @@ const explainRules = () => {
 
 const askQuestion = () => {
   let num = Math.round(Math.random() * 100)
-  const answer = readlineSync.question(`Question: ${num}\n Your answer: `)
+  const answer = readlineSync.question(`Question: ${num}\nYour answer: `)
   return [num, answer]
 }
 

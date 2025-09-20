@@ -41,7 +41,7 @@ const checkAnswer = () => {
 
     else if (res !== answer) {
     // eslint-disable-next-line no-undef
-      console.log ('Not correct')
+      console.log ('Not correct!')
     }
   }
 }

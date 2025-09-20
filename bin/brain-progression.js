@@ -27,8 +27,6 @@ const generateProgression = () => {
 const askQuestion = () => {
   const progression = generateProgression()
   const index = Math.round(Math.random() * 5) + progression.split(' ').length - 1 - 6
-  // eslint-disable-next-line no-undef
-  console.log(index)
   const modifiedProgression = progression.replace(progression.split(' ')[index], '..')
   const replacedNum = progression.split(' ')[index]
 
@@ -44,7 +42,7 @@ const checkAnswer = () => {
     let [res, answer] = askQuestion()
     if (res.toString() === answer.toString()) {
     // eslint-disable-next-line no-undef
-      console.log ('Correct')
+      console.log ('Correct!')
       counter = counter + 1
     }
     else if (res.toString() !== answer.toString()) {

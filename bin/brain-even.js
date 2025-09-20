@@ -19,18 +19,18 @@ const checkAnswer = () => {
     let [num, answer] = askQuestion()
     if (num % 2 === 0 && answer.toLowerCase() === 'yes') {
     // eslint-disable-next-line no-undef
-      console.log ('Correct')
+      console.log ('Correct!')
       counter = counter + 1
     }
     if (num % 2 === 1 && answer.toLowerCase() === 'no') {
     // eslint-disable-next-line no-undef
-      console.log ('Correct')
+      console.log ('Correct!')
 
       counter = counter + 1
     }
     else if (answer.toLowerCase() !== 'yes' && answer.toLowerCase() !== 'yes') {
     // eslint-disable-next-line no-undef
-      console.log ('Not correct')
+      console.log ('Not correct!')
     }
   }
 }

@@ -34,7 +34,7 @@ const checkAnswer = () => {
     let [res, answer] = askQuestion()
     if (res.toString() === answer.toString()) {
     // eslint-disable-next-line no-undef
-      console.log ('Correct')
+      console.log ('')
       counter = counter + 1
     }
     else if (res.toString() !== answer.toString()) {

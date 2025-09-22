@@ -54,8 +54,8 @@ const checkAnswer = () => {
   console.log(`Congratulations, ${user}!`)
 }
 
-const playPrograssionGame = () => {
+const playProgressionGame = () => {
   checkAnswer()
 }
 
-export default playPrograssionGame
+export default playProgressionGame

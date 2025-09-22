@@ -7,16 +7,16 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Daurova_frontend-project-44&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Daurova_frontend-project-44)
 
 ### Game demonstration brain-even
-https://asciinema.org/a/1UZOkDFBgLxiX07fIWz1pRWMc
+ https://asciinema.org/a/h4ZW6krYlmPZYc4mDUysVk8WM
 
 ### Game demonstration brain-calc
-https://asciinema.org/a/PVfLBJc3QGTQpRgtyCTwYYwAw
+https://asciinema.org/a/JI00zx3FMHc65qF0GnxvXFqJj
 
-### Game demonstration brain GCD
-https://asciinema.org/a/fuCk7vcUprNi2efIcWw909zeC
+### Game demonstration brain-gcd
+https://asciinema.org/a/gDxTLkohOVuzB5lfW82egBxkY
 
-### Game demonstration brain progression
-https://asciinema.org/a/mIlB8ohyAAxeoh4AUsYG1E4e6
+### Game demonstration brain-progression
+https://asciinema.org/a/3F9vFSaEK5vQpgtGu4M9VoGOe
 
 ### Game demonstration brain-prime
-https://asciinema.org/a/RkN1XLgzxvTC502eRHKUgr9vo
+https://asciinema.org/a/rHJkhIMvAr7C3uRHHyye1YbdS

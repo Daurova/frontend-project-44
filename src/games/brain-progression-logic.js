@@ -19,7 +19,6 @@ const generateProgression = () => {
     progression += ` ${progressionNumber}`
     counter += 1
   }
-
   return progression
 }
 

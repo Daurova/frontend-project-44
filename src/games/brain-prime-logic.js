@@ -1,53 +1,52 @@
+/* eslint-disable no-undef */
 import greetUser from '../cli.js'
 import readlineSync from 'readline-sync'
+import getRandomNumber from './utils/getRandomNumber.js'
+import gameCycle from './utils/gameCycle.js'
+
+const MAX_NUMBER = 100
+const MAX_ROUNDS = 3
 
 const explainRules = () => {
-  // eslint-disable-next-line no-undef
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".')
 }
 
 const isPrime = (number) => {
-  if (number <= 1) return 'no'
-  if (number <= 3) return 'yes'
-  if (number % 2 === 0 || number % 3 === 0) return 'no'
+  if (number <= 1) return false
+  if (number <= 3) return true
+  if (number % 2 === 0 || number % 3 === 0) return false
 
   for (let i = 5; i * i <= number; i += 6) {
-    if (number % i === 0 || number % (i + 2) === 0) return 'no'
+    if (number % i === 0 || number % (i + 2) === 0) return false
   }
 
-  return 'yes'
+  return true
 }
 
-const askQuestion = () => {
-  const num = Math.round(Math.random() * 99) + 1
-  const answer = readlineSync.question(`Question: ${num}\n Your answer: `)
-  const res = isPrime(num)
-  return [res, answer]
+const generateQuestionAndAnswer = () => {
+  const number = getRandomNumber(MAX_NUMBER) + 1
+  const correctAnswer = isPrime(number) ? 'yes' : 'no'
+  const userAnswer = readlineSync.question(`Question: ${number}\nYour answer: `)
+
+  return [correctAnswer, userAnswer.trim().toLowerCase()]
 }
 
-const checkAnswer = () => {
-  const user = greetUser()
-  explainRules()
-  let counter = 0
-  while (counter < 3) {
-    let [res, answer] = askQuestion()
-    if (res.toString() === answer.toString()) {
-    // eslint-disable-next-line no-undef
-      console.log ('Correct!')
-      counter = counter + 1
-    }
-    else if (res.toString() !== answer.toString()) {
-    // eslint-disable-next-line no-undef
-      console.log (`${answer} is wrong answer ;(. Correct answer was ${res}.\nLet's try again, ${user}!`)
-      return
-    }
+const handleGameRound = (correctAnswer, userAnswer, user) => {
+  if (correctAnswer === userAnswer) {
+    console.log('Correct!')
+    return true
   }
-  // eslint-disable-next-line no-undef
-  console.log(`Congratulations, ${user}!`)
+  else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+    console.log(`Let's try again, ${user}!`)
+    return false
+  }
 }
 
 const playPrimeGame = () => {
-  checkAnswer()
+  const user = greetUser()
+  explainRules()
+  gameCycle(MAX_ROUNDS, generateQuestionAndAnswer, handleGameRound, user)
 }
 
 export default playPrimeGame

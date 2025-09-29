@@ -1,15 +1,19 @@
+/* eslint-disable no-undef */
 import greetUser from '../cli.js'
 import readlineSync from 'readline-sync'
+import getRandomNumber from './utils/getRandomNumber.js'
+import gameCycle from './utils/gameCycle.js'
+
+const MAX_ROUNDS = 3
 
 const explainRules = () => {
-  // eslint-disable-next-line no-undef
   console.log('What number is missing in the progression?')
 }
 
 const generateProgression = () => {
-  const progressionStart = Math.round(Math.random() * 5)
-  const step = Math.round(Math.random() * 4) + 1
-  const progressionLength = Math.round(Math.random() * 5) + 5
+  const progressionStart = getRandomNumber(5)
+  const step = getRandomNumber(4) + 1
+  const progressionLength = getRandomNumber(5) + 5
   let progression = `${progressionStart}`
   let progressionNumber = progressionStart
   let counter = 1
@@ -22,39 +26,34 @@ const generateProgression = () => {
   return progression
 }
 
-const askQuestion = () => {
+const generateQuestionAndAnswer = () => {
   const progression = generateProgression()
-  const index = Math.round(Math.random() * 5) + progression.split(' ').length - 1 - 6
-  const modifiedProgression = progression.replace(progression.split(' ')[index], '..')
-  const replacedNum = progression.split(' ')[index]
+  const progressionArray = progression.split(' ')
+  const index = getRandomNumber(progressionArray.length - 1)
+  const correctAnswer = progressionArray[index]
+  const modifiedProgression = progression.replace(progressionArray[index], '..')
 
-  const answer = readlineSync.question(`Question: ${modifiedProgression}\n Your answer: `)
-  return [replacedNum, answer]
+  const userAnswer = readlineSync.question(`Question: ${modifiedProgression}\nYour answer: `)
+
+  return [correctAnswer, userAnswer.trim()]
 }
 
-const checkAnswer = () => {
-  const user = greetUser()
-  explainRules()
-  let counter = 0
-  while (counter < 3) {
-    let [res, answer] = askQuestion()
-    if (res.toString() === answer.toString()) {
-    // eslint-disable-next-line no-undef
-      console.log ('Correct!')
-      counter = counter + 1
-    }
-    else if (res.toString() !== answer.toString()) {
-    // eslint-disable-next-line no-undef
-      console.log (`${answer} is wrong answer ;(. Correct answer was ${res}.\nLet's try again, ${user}!`)
-      return
-    }
+const handleGameRound = (correctAnswer, userAnswer, user) => {
+  if (correctAnswer === userAnswer) {
+    console.log('Correct!')
+    return true
   }
-  // eslint-disable-next-line no-undef
-  console.log(`Congratulations, ${user}!`)
+  else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+    console.log(`Let's try again, ${user}!`)
+    return false
+  }
 }
 
 const playProgressionGame = () => {
-  checkAnswer()
+  const user = greetUser()
+  explainRules()
+  gameCycle(MAX_ROUNDS, generateQuestionAndAnswer, handleGameRound, user)
 }
 
 export default playProgressionGame

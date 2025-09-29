@@ -1,52 +1,40 @@
 /* eslint-disable no-undef */
 import greetUser from '../cli.js'
 import readlineSync from 'readline-sync'
+import getRandomNumber from './utils/getRandomNumber.js'
+import gameCycle from './utils/gameCycle.js'
+
+const MAX_NUMBER = 100
+const MAX_ROUNDS = 3
 
 const explainRules = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".')
 }
 
-const askQuestion = () => {
-  let num = Math.round(Math.random() * 100)
-  const answer = readlineSync.question(`Question: ${num}\nYour answer: `)
-  return [num, answer]
+const generateQuestionAndAnswer = () => {
+  const number = getRandomNumber(MAX_NUMBER)
+  const correctAnswer = number % 2 === 0 ? 'yes' : 'no'
+  const userAnswer = readlineSync.question(`Question: ${number}\nYour answer: `)
+
+  return [correctAnswer, userAnswer.trim().toLowerCase()]
 }
 
-const checkAnswer = () => {
-  const user = greetUser()
-  let counter = 0
-  while (counter < 3) {
-    let [num, answer] = askQuestion()
-    if (num % 2 === 0 && answer.toLowerCase() === 'yes') {
-      console.log ('Correct!')
-      counter = counter + 1
-    }
-    if (num % 2 === 1 && answer.toLowerCase() === 'no') {
-      console.log ('Correct!')
-
-      counter = counter + 1
-    }
-    else if (answer.toLowerCase() !== 'yes' && answer.toLowerCase() !== 'no') {
-      console.log (`Let's try again, ${user}!`)
-      return
-    }
-    else if (num % 2 === 0 && answer.toLowerCase() === 'no') {
-      console.log (`Let's try again, ${user}!`)
-      return
-    }
-    else if (num % 2 === 1 && answer.toLowerCase() === 'yes') {
-      console.log (`Let's try again, ${user}!`)
-      return
-    }
+const handleGameRound = (correctAnswer, userAnswer, user) => {
+  if (correctAnswer === userAnswer) {
+    console.log('Correct!')
+    return true
   }
-  if (counter === 3) {
-    console.log(`Congratulations, ${user}!`)
+  else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+    console.log(`Let's try again, ${user}!`)
+    return false
   }
 }
 
 const playEvenGame = () => {
+  const user = greetUser()
   explainRules()
-  checkAnswer()
+  gameCycle(MAX_ROUNDS, generateQuestionAndAnswer, handleGameRound, user)
 }
 
 export default playEvenGame

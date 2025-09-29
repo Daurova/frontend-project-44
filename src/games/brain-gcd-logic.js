@@ -1,8 +1,13 @@
+/* eslint-disable no-undef */
 import greetUser from '../cli.js'
 import readlineSync from 'readline-sync'
+import getRandomNumber from './utils/getRandomNumber.js'
+import gameCycle from './utils/gameCycle.js'
+
+const MAX_NUMBER = 100
+const MAX_ROUNDS = 3
 
 const explainRules = () => {
-  // eslint-disable-next-line no-undef
   console.log('Find the greatest common divisor of given numbers.')
 }
 
@@ -15,38 +20,31 @@ const findGcd = (a, b) => {
   return a
 }
 
-const askQuestion = () => {
-  let num1 = Math.round(Math.random() * 100) + 1
-  let num2 = Math.round(Math.random() * 100) + 1
+const generateQuestionAndAnswer = () => {
+  const num1 = getRandomNumber(MAX_NUMBER) + 1
+  const num2 = getRandomNumber(MAX_NUMBER) + 1
+  const correctAnswer = findGcd(num1, num2).toString()
+  const userAnswer = readlineSync.question(`Question: ${num1} ${num2}\nYour answer: `)
 
-  const answer = readlineSync.question(`Question: ${num1} ${num2}\n Your answer: `)
-  const res = findGcd(num1, num2)
-  return [res, answer]
+  return [correctAnswer, userAnswer.trim()]
 }
 
-const checkAnswer = () => {
-  const user = greetUser()
-  explainRules()
-  let counter = 0
-  while (counter < 3) {
-    let [res, answer] = askQuestion()
-    if (res.toString() === answer.toString()) {
-    // eslint-disable-next-line no-undef
-      console.log ('Correct!')
-      counter = counter + 1
-    }
-    else if (res.toString() !== answer.toString()) {
-    // eslint-disable-next-line no-undef
-      console.log (`${answer} is wrong answer ;(. Correct answer was ${res}.\nLet's try again, ${user}!`)
-      return
-    }
+const handleGameRound = (correctAnswer, userAnswer, user) => {
+  if (correctAnswer === userAnswer) {
+    console.log('Correct!')
+    return true
   }
-  // eslint-disable-next-line no-undef
-  console.log(`Congratulations, ${user}!`)
+  else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+    console.log(`Let's try again, ${user}!`)
+    return false
+  }
 }
 
 const playGcdGame = () => {
-  checkAnswer()
+  const user = greetUser()
+  explainRules()
+  gameCycle(MAX_ROUNDS, generateQuestionAndAnswer, handleGameRound, user)
 }
 
 export default playGcdGame
